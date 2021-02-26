@@ -33,7 +33,7 @@ const VoteButtons = ({ post }) => {
 
     return (
         <>
-            <VStack>
+            <VStack className='upvote'>
                 <IconButton 
                     size='lg'
                     colorScheme='purple'
@@ -45,11 +45,11 @@ const VoteButtons = ({ post }) => {
                     {post.upVotesCount}
                 </Text>
             </VStack>
-            <VStack>
+            <VStack className='downvote'>
                 <IconButton 
                     size='lg'
                     colorScheme='yellow'
-                    aria-label='upvote'
+                    aria-label='downvote'
                     icon={<FiArrowDown />}
                     onClick={() => handleClick('downvote')}    
                 />

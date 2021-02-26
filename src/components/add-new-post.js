@@ -11,6 +11,7 @@ import {
     ModalHeader,
     ModalOverlay,
     HStack,
+    Flex,
     useDisclosure,
   } from "@chakra-ui/core";
   import React, { useState, useEffect } from "react";
@@ -77,31 +78,38 @@ import {
                                     value={title} 
                                     onChange={(e) => setTitle(e.target.value)}
                                 />
-                                <input id='file' 
-                                       className='inputFile'
-                                       type='file' 
-                                       name='file' 
-                                       onChange={handleFileChange}
-                                />
                                 
-                                <label for='file'>
-                                    <i className='fa fa-upload' style={{marginRight: '5px'}}></i>
-                                    <span>Choose a file</span>
-                                </label>
                             </FormControl>
                         </ModalBody>
                         <ModalFooter>
-                            <HStack spacing={4}>
-                                <Button onClick={onClose}>Close</Button>
-                                <Button 
-                                    onClick={handleSubmit}
-                                    colorScheme='blue'
-                                    disabled={!title.trim()}
-                                    isLoading={isSaving}
-                                >
-                                    Save
-                                </Button>
-                            </HStack>
+                            <Flex w='100%' justifyContent='space-between' alignItems='flex-end'>
+                                <div>
+                                    <input id='file' 
+                                        className='inputFile'
+                                        type='file' 
+                                        name='file' 
+                                        onChange={handleFileChange}
+                                    />
+                                    
+                                    <label className='file-upload' for='file'>
+                                        <i className='fa fa-upload' style={{marginRight: '5px'}}></i>
+                                        <span>Choose a file</span>
+                                    </label>
+                                </div>
+                                
+                                <HStack>
+                                    <Button onClick={onClose}>Close</Button>
+                                    <Button 
+                                        onClick={handleSubmit}
+                                        colorScheme='blue'
+                                        disabled={!title.trim()}
+                                        isLoading={isSaving}
+                                    >
+                                        Save
+                                    </Button>
+                                </HStack>
+                                
+                            </Flex>
                         </ModalFooter>
                     </ModalContent>
                 </ModalOverlay>

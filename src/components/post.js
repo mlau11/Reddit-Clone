@@ -10,12 +10,12 @@ const Post = ({ post }) => {
         
         if(!expanded) {
             
-                $('#post-img').css({'max-height': '700px', 'height': '700px'})
+                $(`#${post.id}-file`).css({'max-height': '700px', 'height': '700px'})
             
             expanded = true;
         } else {
             
-                $('#post-img').css({'max-height': '300px', 'height': '300px'})
+                $(`#${post.id}-file`).css({'max-height': '300px', 'height': '300px'})
             
             expanded  = false;
         }
@@ -23,7 +23,7 @@ const Post = ({ post }) => {
 
     var img;
     if(post.fileSrc != ''){
-        img= <img id='post-img' className='post-img' src={post.fileSrc} alt='img' onClick={imgClicked}/> 
+        img= <img id={`${post.id}-file`} className='post-img' src={post.fileSrc} alt='img' onClick={imgClicked}/> 
     } else {
         img = null;
     }
@@ -31,7 +31,7 @@ const Post = ({ post }) => {
     return (
         <HStack key={post.id} w='100%' alignItems='flex-start'>
             <VoteButtons post={post} />
-            <Box bg='gray.100' p={4} rounded='md' w='100%'>
+            <Box className='post' bg='gray.100' p={4} rounded='md' w='100%'>
                 <Text>{post.title}</Text>
                 {img}
                 <ReactionEmojis post={post} />
