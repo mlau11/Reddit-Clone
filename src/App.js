@@ -1,14 +1,12 @@
-import { Container, Flex, Spinner, VStack } from '@chakra-ui/core'
-import React, { useState, useEffect } from 'react'
-import Post from './components/post'
-import { db } from './lib/firebase'
-import Navbar from  './components/navbar'
-import './App.scss'
+import { Container, VStack } from "@chakra-ui/core";
+import React, { useState, useEffect } from "react";
+import Post from "./components/post";
+import { db } from "./lib/firebase";
+import Navbar from "./components/navbar";
+import "./App.scss";
 
 const App = () => {
-  const [posts, setPosts] = useState([])
-
-  
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     // Hook to handle the real-time updating of posts whenever there is a
@@ -33,15 +31,15 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <Container maxW='md' centerContent p={8}>
-        <VStack spacing={8} w='100%'>
-          {posts.map(post => (
+      <Container maxW="md" centerContent p={8}>
+        <VStack spacing={8} w="100%">
+          {posts.map((post) => (
             <Post post={post} key={post.id} />
           ))}
         </VStack>
       </Container>
-    </>  
-  )
-}
+    </>
+  );
+};
 
 export default App;

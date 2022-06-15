@@ -1,6 +1,6 @@
 import { Button, HStack } from "@chakra-ui/core";
-import React, { useState } from "react";
-import $ from 'jquery'
+import React from "react";
+import $ from "jquery";
 
 import { db } from "../lib/firebase";
 
@@ -44,12 +44,12 @@ const ReactionEmojis = ({ post }) => {
   };
 
   const shake = (e) => {
-    $(`#${e.target.id}`).addClass('shake')
-    
-    setTimeout(function() {
-        $(`#${e.target.id}`).removeClass('shake')
+    $(`#${e.target.id}`).addClass("shake");
+
+    setTimeout(function () {
+      $(`#${e.target.id}`).removeClass("shake");
     }, 1000);
-  }
+  };
 
   return (
     <>
@@ -60,10 +60,9 @@ const ReactionEmojis = ({ post }) => {
           colorScheme="purple"
           aria-label="thumbsup"
           onClick={(e) => {
-              handleClick("thumbsup")
-              shake(e)
-            }
-          }
+            handleClick("thumbsup");
+            shake(e);
+          }}
         >
           {emoji[0]} {post.thumbsupReactions}
         </Button>
@@ -74,10 +73,9 @@ const ReactionEmojis = ({ post }) => {
           colorScheme="purple"
           aria-label="hooray"
           onClick={(e) => {
-              handleClick("hooray")
-              shake(e)
-            }  
-          }
+            handleClick("hooray");
+            shake(e);
+          }}
         >
           {emoji[1]} {post.hoorayReactions}
         </Button>
@@ -88,10 +86,9 @@ const ReactionEmojis = ({ post }) => {
           colorScheme="purple"
           aria-label="heart"
           onClick={(e) => {
-            handleClick("heart")
-            shake(e)
-          }
-        }
+            handleClick("heart");
+            shake(e);
+          }}
         >
           {emoji[2]} {post.heartReactions}
         </Button>
@@ -102,10 +99,9 @@ const ReactionEmojis = ({ post }) => {
           colorScheme="purple"
           aria-label="fire"
           onClick={(e) => {
-              handleClick("fire")
-              shake(e)
-            }
-          }
+            handleClick("fire");
+            shake(e);
+          }}
         >
           {emoji[3]} {post.fireReactions}
         </Button>
@@ -116,10 +112,9 @@ const ReactionEmojis = ({ post }) => {
           colorScheme="purple"
           aria-label="thumbsup"
           onClick={(e) => {
-              handleClick('eyes')
-              shake(e)
-            }
-          }
+            handleClick("eyes");
+            shake(e);
+          }}
         >
           {emoji[4]} {post.eyesReactions}
         </Button>
@@ -127,7 +122,5 @@ const ReactionEmojis = ({ post }) => {
     </>
   );
 };
-
-
 
 export default ReactionEmojis;
